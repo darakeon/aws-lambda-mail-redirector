@@ -38,4 +38,4 @@ here, so the next person will have it.
 [Don't fly Money project]: https://github.com/darakeon/dfm
 [DK library]: https://github.com/darakeon/dk-lib
 [Nuget Package Manager]: https://www.nuget.org/packages/Keon.Eml/
-[open an issue at this repository]: https://github.com/darakeon/aws-lambda-mail-redirector/issues
+[open an issue at this repository]: ../../issues
