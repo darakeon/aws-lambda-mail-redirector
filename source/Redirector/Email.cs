@@ -34,7 +34,7 @@ namespace Redirector
 			Body = $"To: {toAll}<br />"
 				+ $"Date: {date}<br />"
 				+ $"Message IDs: {messageIdsAll}<br />"
-				+ EmlReader.Read(email).Body;
+				+ new EmlReader(email).Body;
 
 			return this;
 		}
