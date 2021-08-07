@@ -1,7 +1,9 @@
 using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using System.Text.RegularExpressions;
 using Keon.Eml;
 
@@ -26,6 +28,8 @@ namespace Redirector
 
 		internal String Body { get; private set; }
 
+		private Attachment attachment;
+
 		public Email BuildBody(DateTime date, String[] to, params String[] messageIds)
 		{
 			var toAll = String.Join(",", to);
@@ -35,6 +39,13 @@ namespace Redirector
 				+ $"Date: {date}<br />"
 				+ $"Message IDs: {messageIdsAll}<br />"
 				+ new EmlReader(email).Body;
+
+			attachment = new Attachment(
+				new MemoryStream(
+					Encoding.UTF8.GetBytes(email)
+				),
+				"original.eml"
+			);
 
 			return this;
 		}
@@ -68,6 +79,7 @@ namespace Redirector
 				From = new MailAddress(Cfg.Smtp.From, Cfg.Smtp.FromName),
 				Subject = subject,
 				Body = Body,
+				Attachments = {attachment}
 			};
 			message.To.Add(new MailAddress(Cfg.Smtp.To));
 
