@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Amazon;
 
 namespace Redirector
@@ -10,7 +11,8 @@ namespace Redirector
 			public static readonly String From = env("FROM");
 			public static readonly String FromName = env("NAME");
 
-			public static readonly String To = env("TO");
+			public static readonly Dictionary<String, String> To =
+				Json<Dictionary<String, String>>.FromText(env("TO"));
 
 			public static readonly String Username = env("UN");
 			public static readonly String Password = env("PW");

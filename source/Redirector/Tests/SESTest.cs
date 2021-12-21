@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using Amazon.Lambda.Serialization.SystemTextJson;
 using Redirector.Structure;
 
 namespace Redirector.Tests
@@ -96,12 +95,7 @@ namespace Redirector.Tests
 
 		private static Package createPackage(String file)
 		{
-			var json = File.ReadAllText(file);
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var example = new MemoryStream(bytes);
-
-			return new DefaultLambdaJsonSerializer()
-				.Deserialize<Package>(example);
+			return Json<Package>.FromFile(file);
 		}
 
 		private static void assert<T>(T value, T expected)

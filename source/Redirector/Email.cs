@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -21,6 +22,8 @@ namespace Redirector
 			Console.WriteLine($"[{messageId}] {subject}");
 		}
 
+		private readonly List<String> to = new List<String>();
+
 		private readonly String[] from;
 		private readonly String subject;
 		private readonly String messageId;
@@ -32,6 +35,24 @@ namespace Redirector
 
 		public Email BuildBody(DateTime date, String[] to, params String[] messageIds)
 		{
+			foreach (var receiver in to)
+			{
+				var redirect =
+					Cfg.Smtp.To.ContainsKey(receiver)
+						? Cfg.Smtp.To[receiver]
+						: Cfg.Smtp.To["default"];
+
+				if (this.to.Contains(redirect))
+				{
+					Console.WriteLine($"Receiver [{redirect}] of [{receiver}] already exists");
+				}
+				else
+				{
+					Console.WriteLine($"Added [{redirect}] because of [{receiver}]");
+					this.to.Add(redirect);
+				}
+			}
+
 			var toAll = String.Join(",", to);
 			var messageIdsAll = String.Join(",", messageIds);
 
@@ -81,7 +102,11 @@ namespace Redirector
 				Body = Body,
 				Attachments = {attachment}
 			};
-			message.To.Add(new MailAddress(Cfg.Smtp.To));
+
+			foreach (var receiver in to)
+			{
+				message.To.Add(new MailAddress(receiver));
+			}
 
 			foreach (var contact in from)
 			{
