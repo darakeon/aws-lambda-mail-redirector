@@ -54,11 +54,14 @@ namespace Redirector
 			}
 
 			var toAll = String.Join(",", to);
+			var fromAll = String.Join(",", from);
 			var messageIdsAll = String.Join(",", messageIds);
 
-			Body = $"To: {toAll}<br />"
+			Body = $"From: {fromAll}<br />"
+				+ $"To: {toAll}<br />"
 				+ $"Date: {date}<br />"
 				+ $"Message IDs: {messageIdsAll}<br />"
+				+ "<br />"
 				+ new EmlReader(email).Body;
 
 			attachment = new Attachment(
