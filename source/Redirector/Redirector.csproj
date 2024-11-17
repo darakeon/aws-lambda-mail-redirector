@@ -20,8 +20,4 @@
     </None>
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;del $(OutDir)$(ProjectName).exe&#xD;&#xA;del $(OutDir)example.json&#xD;&#xA;rmdir /s /q $(OutDir)emls&#xD;&#xA;del $(OutDir)$(ProjectName).runtimeconfig.dev.json&#xD;&#xA;powershell Compress-Archive -Path '$(OutDir)*' -DestinationPath '$(SolutionDir)lambda.zip' -Force&#xD;&#xA;)" />
-  </Target>
-
 </Project>
