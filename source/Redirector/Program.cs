@@ -1,6 +1,4 @@
-﻿using Redirector.Tests;
-
-namespace Redirector;
+﻿namespace Redirector;
 
 class Program
 {

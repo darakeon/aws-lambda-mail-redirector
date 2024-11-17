@@ -1,6 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Text;
 using Redirector.Structure;
 
 namespace Redirector.Tests;

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Redirector.Structure;
+﻿namespace Redirector.Structure;
 
 public enum Status
 {
