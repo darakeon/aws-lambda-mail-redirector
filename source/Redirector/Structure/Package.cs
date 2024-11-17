@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Redirector.Structure
+namespace Redirector.Structure;
+
+public struct Package
 {
-	public struct Package
-	{
-		public List<Record> Records { get; set; }
-	}
+	public List<Record> Records { get; set; }
 }

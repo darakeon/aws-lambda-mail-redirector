@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Redirector.Structure
+namespace Redirector.Structure;
+
+public struct Header
 {
-	public struct Header
-	{
-		public String Name { get; set; }
-		public String Value { get; set; }
-	}
+	public String Name { get; set; }
+	public String Value { get; set; }
 }

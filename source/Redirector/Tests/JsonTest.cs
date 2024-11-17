@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Redirector.Tests
+namespace Redirector.Tests;
+
+class JsonTest
 {
-	class JsonTest
+	public static void Test()
 	{
-		public static void Test()
-		{
-			var json = "{\"key1\": \"value1\", \"key2\": \"value2\"}";
-			var dic = Json<Dictionary<String, String>>.FromText(json);
+		var json = "{\"key1\": \"value1\", \"key2\": \"value2\"}";
+		var dic = Json<Dictionary<String, String>>.FromText(json);
 
-			Console.WriteLine($"Start");
+		Console.WriteLine($"Start");
 
-			assert(dic.ContainsKey("key1"), true);
-			assert(dic["key1"], "value1");
-			assert(dic.ContainsKey("key2"), true);
-			assert(dic["key2"], "value2");
+		assert(dic.ContainsKey("key1"), true);
+		assert(dic["key1"], "value1");
+		assert(dic.ContainsKey("key2"), true);
+		assert(dic["key2"], "value2");
 
-			Console.WriteLine($"End");
-		}
+		Console.WriteLine($"End");
+	}
 
-		private static void assert<T>(T value, T expected)
-		{
-			if (value.Equals(expected))
-				return;
+	private static void assert<T>(T value, T expected)
+	{
+		if (value.Equals(expected))
+			return;
 
-			Console.WriteLine($"Difference: {value}, expected {expected}");
-		}
+		Console.WriteLine($"Difference: {value}, expected {expected}");
 	}
 }

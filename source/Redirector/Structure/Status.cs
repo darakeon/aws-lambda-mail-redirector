@@ -1,16 +1,15 @@
 ﻿using System;
 
-namespace Redirector.Structure
+namespace Redirector.Structure;
+
+public enum Status
 {
-	public enum Status
-	{
-		Unknown = 0,
+	Unknown = 0,
 
-		Pass = 1,
-		Gray = 2,
-		Disabled = 3,
+	Pass = 1,
+	Gray = 2,
+	Disabled = 3,
 
-		Fail = -1,
-		ProcessingFailed = -2,
-	}
+	Fail = -1,
+	ProcessingFailed = -2,
 }

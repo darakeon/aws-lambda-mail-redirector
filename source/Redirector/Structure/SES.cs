@@ -1,8 +1,7 @@
-﻿namespace Redirector.Structure
+﻿namespace Redirector.Structure;
+
+public struct SES
 {
-	public struct SES
-	{
-		public Mail Mail { get; set; }
-		public Receipt Receipt { get; set; }
-	}
+	public Mail Mail { get; set; }
+	public Receipt Receipt { get; set; }
 }

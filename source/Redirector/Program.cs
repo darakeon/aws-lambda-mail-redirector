@@ -1,11 +1,10 @@
 ﻿using Redirector.Tests;
 
-namespace Redirector
+namespace Redirector;
+
+class Program
 {
-	class Program
+	public static void Main()
 	{
-		public static void Main()
-		{
-		}
 	}
 }

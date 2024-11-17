@@ -2,42 +2,41 @@ using System;
 using System.Collections.Generic;
 using Amazon;
 
-namespace Redirector
+namespace Redirector;
+
+static class Cfg
 {
-	static class Cfg
+	public class Smtp
 	{
-		public class Smtp
-		{
-			public static readonly String From = env("FROM");
-			public static readonly String FromName = env("NAME");
+		public static readonly String From = env("FROM");
+		public static readonly String FromName = env("NAME");
 
-			public static readonly Dictionary<String, String> To =
-				Json<Dictionary<String, String>>.FromText(env("TO"));
+		public static readonly Dictionary<String, String> To =
+			Json<Dictionary<String, String>>.FromText(env("TO"));
 
-			public static readonly String Username = env("UN");
-			public static readonly String Password = env("PW");
+		public static readonly String Username = env("UN");
+		public static readonly String Password = env("PW");
 
-			public static readonly Int32 Port = Int32.Parse(env("PORT"));
+		public static readonly Int32 Port = Int32.Parse(env("PORT"));
 
-			private static String env(String key) => envByType("SES", key);
-		}
+		private static String env(String key) => envByType("SES", key);
+	}
 
-		public class File
-		{
-			public static readonly String Username = env("UN");
-			public static readonly String Password = env("PW");
-			public static readonly String Bucket = env("BUCKET");
+	public class File
+	{
+		public static readonly String Username = env("UN");
+		public static readonly String Password = env("PW");
+		public static readonly String Bucket = env("BUCKET");
 
-			private static String env(String key) => envByType("S3", key);
-		}
+		private static String env(String key) => envByType("S3", key);
+	}
 
-		public static readonly RegionEndpoint Region = RegionEndpoint.USWest2;
+	public static readonly RegionEndpoint Region = RegionEndpoint.USWest2;
 
-		private static String envByType(String type, String key)
-		{
-			var value = Environment.GetEnvironmentVariable($"AWS_{type}_{key}");
-			Console.WriteLine($"{type} {key} empty: {String.IsNullOrEmpty(value)}");
-			return value;
-		}
+	private static String envByType(String type, String key)
+	{
+		var value = Environment.GetEnvironmentVariable($"AWS_{type}_{key}");
+		Console.WriteLine($"{type} {key} empty: {String.IsNullOrEmpty(value)}");
+		return value;
 	}
 }
