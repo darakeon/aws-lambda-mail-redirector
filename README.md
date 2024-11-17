@@ -26,9 +26,9 @@ created one at [DK library]. It is available at [Nuget Package Manager].
 
 ## Upload to lamda
 
-When the project is build, it creates a file called lambda.zip at the
-source root folder. You need to update this zip to your lambda so you
-can use it.
+When the project is build (in Release mode), it creates a file called
+lambda.zip at the source folder. You need to update this zip to your
+lambda so you can use it.
 
 Given I configured it some time ago, if you need help to configure all
 the stuff at AWS, [open an issue at this repository] and we can make it
