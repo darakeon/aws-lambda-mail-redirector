@@ -3,7 +3,7 @@ using Redirector.Structure;
 
 namespace Redirector.Tests;
 
-class StatusTest
+internal class StatusTest
 {
 	private static Verdict pass => new Verdict { Status = "PASS" };
 	private static Verdict fail => new Verdict { Status = "FAIL" };

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Redirector.Tests;
 
-class JsonTest
+internal class JsonTest
 {
 	public static void Test()
 	{

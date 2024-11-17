@@ -5,7 +5,7 @@ using Amazon.Lambda.Serialization.SystemTextJson;
 
 namespace Redirector;
 
-class Json<T>
+internal class Json<T>
 {
 	public static T FromFile(String file)
 	{

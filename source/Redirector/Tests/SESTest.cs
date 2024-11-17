@@ -3,7 +3,7 @@ using Redirector.Structure;
 
 namespace Redirector.Tests;
 
-class SESTest
+internal class SESTest
 {
 	private static bool valid = true;
 

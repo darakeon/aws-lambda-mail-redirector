@@ -4,7 +4,7 @@ using Amazon;
 
 namespace Redirector;
 
-static class Cfg
+internal static class Cfg
 {
 	public class Smtp
 	{

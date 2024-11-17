@@ -2,7 +2,7 @@
 
 namespace Redirector.Tests;
 
-class S3Test
+internal class S3Test
 {
 	public static void Test()
 	{
