@@ -26,9 +26,19 @@ created one at [DK library]. It is available at [Nuget Package Manager].
 
 ## Upload to lamda
 
-There is a Makefile at the root of the project to create the zip to
-upload to lambda. You need to use Visual Studio to build a Release
-version of the project before running:
+There is a Makefile at the root of the project to build the project and
+create the zip to upload to lambda. You also can use Visual Studio to
+build a Release version of the project and zip it manually checking the
+logic inside the Makefile, or even use Visual Studio to build and the
+Makefile to create the zip only.
+
+To use Makefile for every step, run at the root:
+
+```
+make all
+```
+
+If you only want to zip:
 
 ```
 make create-zip
