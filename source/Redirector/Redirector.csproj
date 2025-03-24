@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.4" />
-    <PackageReference Include="AWSSDK.S3" Version="3.7.415" />
+    <PackageReference Include="AWSSDK.S3" Version="3.7.415.24" />
     <PackageReference Include="Keon.Eml" Version="6.0.0" />
   </ItemGroup>
 
