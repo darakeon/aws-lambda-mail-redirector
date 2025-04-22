@@ -4,7 +4,7 @@ PROJECT_NAME=Redirector
 SOLUTION_DIR=source
 OUT_DIR=${SOLUTION_DIR}/${PROJECT_NAME}/bin/Release/net${NET}
 
-all: build-release create-zip
+all: build-release create-zip publish
 
 build-release:
 	@docker run \
@@ -21,3 +21,11 @@ create-zip:
 	@sudo rm -f ${OUT_DIR}/${PROJECT_NAME}.runtimeconfig.dev.json
 	@sudo rm -f ${SOLUTION_DIR}/lambda.zip
 	@zip ${SOLUTION_DIR}/lambda.zip ${OUT_DIR}/* -j
+
+publish:
+	@aws lambda update-function-code \
+		--function-name redirect-emails \
+		--zip-file fileb://${SOLUTION_DIR}/lambda.zip > result.json
+	@cat result.json | grep State
+	@cat result.json | grep LastUpdateStatus
+	@rm result.json
