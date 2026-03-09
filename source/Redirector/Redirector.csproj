@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.4.5" />
-    <PackageReference Include="AWSSDK.S3" Version="4.0.18.1" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.18.8" />
     <PackageReference Include="Keon.Eml" Version="6.0.2" />
   </ItemGroup>
 
